@@ -56,7 +56,7 @@ public class PathService {
 
         while (!pq.isEmpty()) {
             Node current = pq.poll();
-            String currentPlanet = current.planet;
+             String currentPlanet = current.planet;
 
             // Process all neighbors of the current planet
             List<Routes> neighbors = routeRepository.findByOrigin(currentPlanet);
@@ -80,7 +80,7 @@ public class PathService {
         Collections.reverse(path);
 
         // Return the route response
-        return new RouteResponse(path, distances.values().stream().findFirst().get(), source,destination);
+        return new RouteResponse(path, source,destination);
     }
 
     /**

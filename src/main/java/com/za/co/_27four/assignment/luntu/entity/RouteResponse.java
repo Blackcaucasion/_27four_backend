@@ -4,13 +4,13 @@ import java.util.List;
 
 public class RouteResponse {
     private List<String> path;
-    private double totalDistance;
+
     private String source;
     private String destination;
 
-    public RouteResponse(List<String> path, double totalDistance, String source, String destination) {
+    public RouteResponse(List<String> path, String source, String destination) {
         this.path = path;
-        this.totalDistance = totalDistance;
+
         this.source = source;
         this.destination = destination;
     }
@@ -23,13 +23,6 @@ public class RouteResponse {
         this.path = path;
     }
 
-    public double getTotalDistance() {
-        return totalDistance;
-    }
-
-    public void setTotalDistance(double totalDistance) {
-        this.totalDistance = totalDistance;
-    }
 
     public String getSource() {
         return source;

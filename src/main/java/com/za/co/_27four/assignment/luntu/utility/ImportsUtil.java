@@ -23,12 +23,23 @@ public class ImportsUtil {
     private static String ROUTE_SHEET = "Routes";
     private static String TRAFFIC_SHEET = "Traffic";
 
+    /***
+     * checks if the file is a csv file.
+     * @param file
+     * @return
+     */
     public static boolean hasExcelFormat(MultipartFile file) {
         if (!TYPE.equals(file.getContentType())) {
             return false;
         }
         return true;
     }
+
+    /****
+     * reads planets data from the csv file.
+     * @param is
+     * @return List od Planets.
+     */
     public static List<Planets> excelToPlanetList(InputStream is) {  // TODO create custom exception
         try {
             Workbook workbook = new XSSFWorkbook(is);
@@ -70,6 +81,12 @@ public class ImportsUtil {
         }
     }
 
+    /***
+     *
+     * reads routes data from csv
+     * @param is
+     * @return
+     */
     public static List<Routes> excelToRoutesList(InputStream is) {
         try {
             Workbook workbook = new XSSFWorkbook(is);
@@ -115,6 +132,12 @@ public class ImportsUtil {
             throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
         }
     }
+
+    /****
+     * reads traffic data from csv file
+     * @param is
+     * @return
+     */
     public static List<Traffic> excelToTrafficList(InputStream is) {
         try {
             Workbook workbook = new XSSFWorkbook(is);

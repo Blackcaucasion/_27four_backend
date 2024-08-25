@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: page_head}">
+</head>
+<body>
+
+<nav th:replace="~{layout :: page_nav}">
+</nav>
+
+<div class="container mt-5">
+    <h1>Find the Shortest Path</h1>
+    <form id="path-form" class="mt-4">
+        <div class="form-group">
+            <label for="source">Source Planet:</label>
+            <input type="text" class="form-control" id="source" name="source" required>
+        </div>
+        <div class="form-group">
+            <label for="destination">Destination Planet:</label>
+            <input type="text" class="form-control" id="destination" name="destination" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Find Path</button>
+    </form>
+
+    <div id="result-section" class="mt-4" style="display:none;">
+        <h3>Shortest Path Result:</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Step</th>
+                <th>Planet</th>
+            </tr>
+            </thead>
+            <tbody id="path-table-body">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer class="bg-light text-center mt-5 py-3">
+    <p>©27four Group</p>
+</footer>
+<script>
+    $(document).ready(function () {
+        $('#path-form').on('submit', function (event) {
+            event.preventDefault();
+            let source = $('#source').val();
+            let destination = $('#destination').val();
+
+            $.ajax({
+                url: '/api/v1/routes/shortest',
+                method: 'GET',
+                data: {
+                    source: source,
+                    destination: destination
+                },
+                success: function (response) {
+                    $('#result-section').show();
+                    let pathTableBody = $('#path-table-body');
+                    pathTableBody.empty();
+
+                    response.path.forEach(function (step, index) {
+                        pathTableBody.append('<tr><td>' + (index + 1) + '</td><td>' + step + '</td></tr>');
+                    });
+                },
+                error: function () {
+                    alert('An error occurred while finding the shortest path.');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="page_head">
+    <meta charset="UTF-8">
+    <title>galaxy travel</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="page_nav" >
+    <a class="navbar-brand" href="/">
+        <img src="https://www.27four.com/wp-content/uploads/2022/08/logo.png" alt="Logo" width="100" height="50">
+    </a>
+</nav>
+
+
+<footer class="bg-light text-center mt-5 py-3" th:fragment="page_footer" style="background-color: #c00926;bottom:0;position: relative" >
+    <p>©27four Group</p>
+</footer>
+
+</body>
+</html>
