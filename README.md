@@ -15,5 +15,11 @@ then
 
 go to http://localhost:8080/
 ### Usage
- the end user has to import the data from the csv file provided.To import the data go to [swagger ] http://localhost:8080/swagger-ui/index.html and import the data via the POST end points provided.
+ the end user has to import the data from the csv file provided file name 27four IM.xlsx under resources.To import the data go to [swagger ] http://localhost:8080/swagger-ui/index.html and import the data via the POST end points provided.
  at http://localhost:8080/ is a UI to enter a source planet and a destination planet.
+
+ #### issues
+ - There's currently a bug with styling not being picked up Note not affecting the MVP
+ - Warning + stack trace logged at startup embedded derby related.
+
+ 
